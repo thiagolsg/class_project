@@ -288,4 +288,14 @@
         display: initial;
         margin-left: 16px;
     }
+
+    .teacher-item footer button {
+        width: 245px;
+        font-size: 16px;
+        justify-content: center; /* coloca todos os elementos do butão ao centro mas tbm cola eles um no outro */
+    }
+
+    .teacher-item footer button img {
+        margin-right: 16px;
+    }
 }
