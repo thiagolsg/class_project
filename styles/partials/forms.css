@@ -1,0 +1,49 @@
+
+
+.select-block label,
+.input-block label,
+.textarea-block label {
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.input-block input,
+.select-block select,
+.textarea-block textarea {
+    width: 100%;
+    height: 5.6rem;
+    margin-top:0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0; /*remove uma linha branca de seleção colocada como padrão */
+    padding: 0 1.6rem; /*da uma egordada no formulario */
+    font: 1.6rem Archivo;
+}
+
+.textarea-block textarea {
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+
+    resize: vertical; /* o textarea tem como opção alterar o tamanho da caixa de mensagem a vontade com o resize a gente restringe que essa alteração seja some na vertical */ 
+}
+
+.input-block,
+.textarea-block {
+    /* isso é feito para que o html after fique nesse bloco do html */
+    position: relative;
+}
+
+.input-block:focus-within::after,
+.textarea-block:focus-within::after {
+    /* focus-within vai criar dentro do input-block um novo html quando ele estiver em foco (selecionado) de nome after */
+    /* esse bloco de código é para aparacer uma linha colorida embaixo de cada campo do formulario selecionado */
+    content: ""; /*indica que existirá um conteudo dentro desse html after é obrigatório esse content */
+    width: calc(100% - 3.2rem);/*calcula a largura desse html com base na borda dos formularios*/
+    height: 2px; /* altura desse html after */
+    background: var(--color-primary-light);
+
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0px;
+}
