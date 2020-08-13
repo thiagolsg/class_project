@@ -54,7 +54,6 @@
 }
 
 #page-give-classes fieldset legend button:hover{
-    transform: translateY(-5px); /* vai alterar em -5px no eixo y quando clicado */
     color: var(--color-primary-dark);
 }
 
