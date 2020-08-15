@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Proffy|Sua Plataforma Online</title>
     
     
      <link rel="stylesheet" href="/styles/main.css">
@@ -69,33 +69,42 @@
 
         <main>
             <!-- Esse loop só é permitido por causa do template engine nunjucks -->
-            {%for proffy in proffys %}
-                <article class="teacher-item">
-                <header>
-                    <img 
-                        src="{{proffy.avatar}}"
-                        alt="{{proffy.name}}">
-                    <div>
-                        <strong>{{proffy.name}}</strong>
-                        <span>{{proffy.subject}}</span>
-                    </div>
-                </header>
             
-                <p>{{proffy.bio}}</p>
-            
-                <footer>
-                    <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
-                    </p>
-                    
-                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{proffy.whatsapp}}&text= Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}" class="button" target = "_blank">
+            {% if proffys == "" %}
+   
+                <p class ="no-results">Nenhum professor encontrado com a sua pesquisa</p>
 
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+            {%else%}
 
-                        </a>
+                {%for proffy in proffys %}
+                    <article class="teacher-item">
+                    <header>
+                        <img 
+                            src="{{proffy.avatar}}"
+                            alt="{{proffy.name}}">
+                        <div>
+                            <strong>{{proffy.name}}</strong>
+                            <span>{{proffy.subject}}</span>
+                        </div>
+                    </header>
+                
+                    <p>{{proffy.bio}}</p>
+                
+                    <footer>
+                        <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
+                        </p>
+                        
+                            <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{proffy.whatsapp}}&text= Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}" class="button" target = "_blank">
 
-                </footer>
-                </article>
-            {%endfor%}    
+                            <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+
+                            </a>
+
+                    </footer>
+                    </article>
+                {%endfor%}   
+
+            {% endif %}    
         </main>
         
 
